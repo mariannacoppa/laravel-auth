@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="d-flex">
+            <div class="d-flex align-items-center justify-content-between">
                 <h2>Elenco progetti</h2>
                 <a href="" class="btn btn-sm btn-primary">Aggiungi progetto</a>
             </div>
@@ -28,7 +28,8 @@
                         <td>{{ $project->id }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="" class="btn btn-sm btn-primary">
+                                <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                    class="btn btn-sm btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </div>

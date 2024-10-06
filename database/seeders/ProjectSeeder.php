@@ -18,14 +18,14 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker)
     {
         for($i=0; $i<10; $i++){
-            $project = new Project;
+            $project = new Project();
 
             $project->name = $faker->sentence(3);
-            $project->summary = $faker->text(6);
+            $project->summary = $faker->paragraphs(3, true);
 
             $project->slug = Str::slug($project->name, '-');
 
-            $project->save;
+            $project->save();
         }
     }
 }

@@ -23,12 +23,12 @@
                     <div class="col-12">
                         <label for="" class="control-label">Nome progetto</label>
                         <input type="text" name="name" id="" class="form-control form-control-sm"
-                            placeholder="Nome pogetto">
+                            placeholder="Nome pogetto" value="{{ old('name', $project->name) }}">
                     </div>
                     <div class="col-12">
                         <label for="" class="control-label">Sommario progetto</label>
                         <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm"
-                            placeholder="Nome pogetto"></textarea>
+                            placeholder="Nome pogetto">{{ old('summary', $project->summary) }}</textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-sm btn-success">Salva</button>

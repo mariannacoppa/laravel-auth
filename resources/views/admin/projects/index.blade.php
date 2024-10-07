@@ -29,8 +29,12 @@
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                    class="btn btn-sm btn-primary">
+                                    class="btn btn-sm btn-primary me-1">
                                     <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                    class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i>
                                 </a>
                             </div>
                         </td>

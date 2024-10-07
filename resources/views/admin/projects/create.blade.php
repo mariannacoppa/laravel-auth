@@ -21,8 +21,12 @@
                 <div class="row">
                     <div class="col-12">
                         <label for="" class="control-label">Nome progetto</label>
-                        <input type="text" name="name" id="" class="form-control form-control-sm"
+                        <input type="text" name="name" id=""
+                            class="form-control form-control-sm @error('name') is-invalid @enderror"
                             placeholder="Nome pogetto" value="{{ old('name') }}">
+                        @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="col-12">
                         <label for="" class="control-label">Sommario progetto</label>

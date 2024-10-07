@@ -76,9 +76,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         $forma_data['slug'] = Project::generateSlug($form_data['name']);
         $project->update($form_data);
         return redirect()->route('admin.projects.index');

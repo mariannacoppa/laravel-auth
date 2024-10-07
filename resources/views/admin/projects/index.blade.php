@@ -27,7 +27,7 @@
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->id }}</td>
                         <td>
-                            <div class="d-flex">
+                            <div class="d-flex align-items-center">
                                 <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
                                     class="btn btn-sm btn-primary me-1">
                                     <i class="fas fa-eye"></i>
@@ -36,6 +36,19 @@
                                     class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                                <form class="mb-0"
+                                    action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                    method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    {{-- <button type="submit" class="btn btn-sm btn-danger delete-project"
+                                        onclick="return confirm('Sei sicuro di voler cancellare questo progetto?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button> --}}
+                                    <button type="submit" class="btn btn-sm btn-danger delete-project">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>
@@ -45,4 +58,5 @@
         </div>
     </div>
 </div>
+@include('admin.projects.partials.modal_delete')
 @endsection

@@ -39,6 +39,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        // $img_path = Storage::put('uploads', $data['image']);
         $form_data = $request->validated();
         $project = new Project();
         $form_data['slug'] = Project::generateSlug($form_data['name'], '-');

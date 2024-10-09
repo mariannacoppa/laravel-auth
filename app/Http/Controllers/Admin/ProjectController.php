@@ -87,6 +87,17 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->validated();
+
+        if($request->hasFile('image')){
+            // cancello l'immagine
+            if($project->image != null){
+                Storage::delete($project->image);
+            }
+            // upload immagine nuova
+            $path = Storage::put('projects_image', $form_data['image']);
+            $form_data['image'] = $path;
+        }
+
         $forma_data['slug'] = Project::generateSlug($form_data['name']);
         $project->update($form_data);
         return redirect()->route('admin.projects.index');
@@ -100,6 +111,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // prima elimino l'immagine e dopo il progetto (altrimenti non potrei recuperare l'immagine)
+        if($project->image !== null){
+            Storage::delete($project->image);
+        }
+
         $project->delete();
         return redirect()->route('admin.projects.index');
     }

@@ -39,6 +39,10 @@
                         @endif
                     </div>
                     <div class="col-12">
+                        <label for="" class="control-label">Immagine</label>
+                        <input type="file" name="image" id="image" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-12">
                         <label for="" class="control-label">Sommario progetto</label>
                         <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm"
                             placeholder="Nome pogetto">{{ old('summary', $project->summary) }}</textarea>

@@ -40,11 +40,12 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+
         $form_data = $request->validated();
         $project = new Project();
 
         if($request->hasFile('image')){
-            $path = Storage::disk('public')->put('projects_image', $form_data['image']);
+            $path = Storage::disk('public')->put('image', $form_data['image']);
             $form_data['image'] = $path;
         }
 

@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:200', //['required', 'max:200']
-            'image' => 'nullable|image|max:5000',
+            'image' => 'nullable|image|max:9000',
             'summary' => 'nullable'
         ];
     }

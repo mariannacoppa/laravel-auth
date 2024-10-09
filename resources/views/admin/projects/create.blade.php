@@ -38,10 +38,6 @@
                             placeholder="Nome pogetto">{{ old('summary') }}</textarea>
                     </div>
                     <div class="col-12">
-                        <label for="" class="form-label">Inserisci immagine</label>
-                        <input class="form-control form-control-sm" type="file" id="cover_image" name="cover_image">
-                    </div>
-                    <div class="col-12">
                         <button type="submit" class="btn btn-sm btn-success">Salva</button>
                     </div>
                 </div>

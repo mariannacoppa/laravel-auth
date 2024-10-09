@@ -16,7 +16,8 @@
                 </ul>
             </div>
             @endif
-            <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
+            <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -30,8 +31,11 @@
                         @enderror
                     </div>
                     <div class="col-12">
-                        @if ($project->image)
-                        <img src="{{ asset('storage/' . $project->image) }}" alt="Immagine del progetto">
+                        @if ($project->image !== null)
+                        <img src="{{ asset('./storage/' . $project->image) }}" alt="{{ $project->name }}"
+                            class="project-image">
+                        @else
+                        <img src="https://placehold.co/400" alt="{{ $project->name }}">
                         @endif
                     </div>
                     <div class="col-12">

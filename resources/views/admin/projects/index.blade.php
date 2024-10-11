@@ -1,4 +1,4 @@
-@extends('layouts.dashboard');
+@extends('layouts.dashboard')
 
 @section('main-content')
 <div class="container-fluid">
@@ -25,7 +25,7 @@
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->slug }}</td>
-                        <td>{{ $project->id }}</td>
+                        {{-- <td>{{ $project->id }}</td> --}}
                         <td>
                             <div class="d-flex align-items-center">
                                 <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
@@ -33,18 +33,14 @@
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
-                                    class="btn btn-sm btn-warning">
+                                    class="btn btn-sm btn-warning me-1">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <form class="mb-0"
                                     action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
-                                    method="post">
+                                    method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <button type="submit" class="btn btn-sm btn-danger delete-project"
-                                        onclick="return confirm('Sei sicuro di voler cancellare questo progetto?')">
-                                        <i class="fas fa-trash"></i>
-                                    </button> --}}
                                     <button type="submit" class="btn btn-sm btn-danger delete-project">
                                         <i class="fas fa-trash"></i>
                                     </button>

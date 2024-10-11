@@ -4,7 +4,7 @@ import "~icons/bootstrap-icons.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**"]);
 // recupero i  pulsanti di cancellazione nel view
-const deleteButtons = document.querySelectorAll("delete-project");
+const deleteButtons = document.querySelectorAll(".delete-project");
 // ciclo i pulsanti
 deleteButtons.forEach((button) => {
     // aggiungo l'evento click ad ogni pulsante di cancellazione

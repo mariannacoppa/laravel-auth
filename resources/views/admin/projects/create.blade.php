@@ -30,7 +30,11 @@
                     </div>
                     <div class="col-12">
                         <label for="" class="control-label">Immagine</label>
-                        <input type="file" name="image" id="image" class="form-control form-control-sm">
+                        <input type="file" name="image" id="image"
+                            class="form-control form-control-sm @error('image') is-invalid @enderror">
+                        @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="col-12">
                         <label for="" class="control-label">Sommario progetto</label>

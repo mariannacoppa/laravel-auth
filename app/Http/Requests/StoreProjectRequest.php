@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:200', //['required', 'max:200']
+            'name' => 'required|string|max:50', //['required', 'max:200']
             'image' => 'nullable|image|max:9000',
             'summary' => 'nullable'
         ];
@@ -33,7 +33,7 @@ class StoreProjectRequest extends FormRequest
         return [
             "name.required" => "Il nome del progetto è obbligatorio",
             "name.max" => "Il nome del progetto dev'essere lungo al massimo :max caratteri",
-            "image.image" => "Il file dev\'essere un\'immagine valida",
+            "image.image" => "L\'immagine deve avere un formato valido",
             "image.max" => "La dimensione del file non deve superare i :max Kb"
         ];
     }
